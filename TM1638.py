@@ -115,7 +115,7 @@ class TM1638(object):
         text = text[::-1]
         text += " "*(8-len(text))
         for i in range(0, 7):
-            byte = 0b00000000;
+            byte = 0b00000000
             for pos in range(8):
                 c = text[pos]
                 if c == 'c':
