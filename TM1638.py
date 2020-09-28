@@ -149,6 +149,16 @@ class TM1638(object):
         GPIO.output(self.stb, True)
         return keys
 
+    def get_buttons64(self):
+        keys = 0
+        GPIO.output(self.stb, False)
+        self.send_byte(0x42)
+        for i in range(4):
+            val = self.receive()
+            keys += val * (2**(i*8))
+        GPIO.output(self.stb, True)
+        return keys
+
     def rotate_bits(self, num):
         for i in range(0, 4):
             num = self.rotr(num, 8)
