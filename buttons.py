@@ -18,6 +18,6 @@ display.enable(1)
 
 count = 0
 while True:
-    keys = display.get_buttons()
+    keys = display.get_buttons64()
     display.set_text(str(keys))
     time.sleep(0.02)
