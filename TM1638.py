@@ -164,7 +164,7 @@ class TM1638(object):
             # 8 4 2 1 128 64 32 16
             realPos = pos+(8-len(text))
             if realPos < 0:
-              print("not possible to render")
+              print("not possible to render: " + str(realPos) + ": " + str(pos) + ": " + text)
             elif realPos >= 4:
               dots = dots | (128 >> realPos-4)
             else:
