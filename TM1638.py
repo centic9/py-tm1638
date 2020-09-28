@@ -107,7 +107,15 @@ class TM1638(object):
         dots = 0b00000000
         pos = text.find('.')
         if pos != -1:
-            dots = dots | (128 >> pos+(8-len(text)))
+            # For my boards, the dot-order is non-linear:
+            # 8 4 2 1 128 64 32 16
+            realPos = pos+(8-len(text))
+            if realPos < 0:
+              print("not possible to render")
+            elif realPos >= 4:
+              dots = dots | (128 >> realPos-4)
+            else:
+              dots = dots | (8 >> realPos)
             text = text.replace('.', '')
 
         self.send_char(7, self.rotate_bits(dots))
