@@ -11,7 +11,7 @@ import os
 # In addition to these you need to connect to 5V and ground.
 
 DIO = 17
-CLK = 21
+CLK = 27
 STB = 22
 
 display = TM1638.TM1638(DIO, CLK, STB)
