@@ -114,6 +114,10 @@ class TM1638(object):
         text = text[0:8]
         text = text[::-1]
         text += " "*(8-len(text))
+
+        # my TM1638 board has the two 4-char displays exchanged
+        text = text[4:8] + text[0:4]
+
         for i in range(0, 7):
             byte = 0b00000000
             for pos in range(8):
