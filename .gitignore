@@ -1,2 +1,5 @@
 *.pyc
 
+# IntelliJ project files
+.idea/
+*.iml
