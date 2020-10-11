@@ -17,10 +17,9 @@ display = TM1638.TM1638(DIO, CLK, STB)
 display.enable(1)
 
 
-
 for i in range(8):
     for j in range(7):
-	m = 128 >> j;
+        m = 128 >> j
         display.send_char(i-1, m)
         time.sleep(0.02)
 
@@ -34,4 +33,3 @@ while True:
     display.set_text(str(count))
     count += 100
     time.sleep(0.02)
-

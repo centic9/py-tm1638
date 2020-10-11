@@ -34,6 +34,6 @@ while True:
         for i in range(len(text)):
             display.set_digit(8-len(text)+i, int(text[i]), i==dotpos)
     except:
-        print traceback.format_exc()
+        print(traceback.format_exc())
     time.sleep(30)
 
