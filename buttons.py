@@ -19,5 +19,6 @@ display.enable(1)
 count = 0
 while True:
     keys = display.get_buttons64()
+    print(str(keys))
     display.set_text(str(keys))
-    time.sleep(0.02)
+    time.sleep(0.1)
