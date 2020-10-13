@@ -152,7 +152,7 @@ class TM1638(object):
     def set_digit(self, pos, digit, dot=False):
         for i in range(0, 6):
             self.send_char(i, self.get_bit_mask(pos, digit, i), dot)
-    
+
     def get_bit_mask(self, pos, digit, bit):
         return ((self.FONT[digit] >> bit) & 1) << pos
 
@@ -183,9 +183,7 @@ class TM1638(object):
             byte = 0b00000000
             for pos in range(8):
                 c = text[pos]
-                if c == 'c':
-                    byte = (byte | self.get_bit_mask(pos, c, i))
-                elif c != ' ':
+                if c != ' ':
                     byte = (byte | self.get_bit_mask(pos, c, i))
             self.send_char(i, self.rotate_bits(byte))
 
