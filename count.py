@@ -16,9 +16,9 @@ display = TM1638.TM1638(DIO, CLK, STB)
 
 display.enable(1)
 
-count = 0
+count = 99999
 while True:
     display.set_text(str(count))
-    count += 100
-    time.sleep(0.02)
+    count -= 100
+    time.sleep(0.08)
 
